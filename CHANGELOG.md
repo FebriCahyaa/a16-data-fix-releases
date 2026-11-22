@@ -1,3 +1,9 @@
+## v1.3.6 (2026-11-23)
+
+- Installer output is shorter: `DEBUG` lines are no longer written to stderr,
+  so root managers no longer interleave `loaded dynamic module` messages with
+  the on-screen report. They remain in `module.log` and logcat.
+
 ## v1.3.5 (2026-11-23)
 
 - **Critical integrity fix:** `sha256_final()` did not transform the final
