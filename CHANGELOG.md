@@ -1,3 +1,18 @@
+## v1.7.0 (2026-11-22)
+
+- Added an **Updates** tab to the webroot. It shows a build-time snapshot of the
+  latest source commits and releases-repository issues. Private source repos
+  show commit text without a link, so the ZIP contains no dead URLs.
+- Added **Export issue**. It turns the last scan, recent runs and the build
+  snapshot into a ready-to-send report, highlights detected faults, and opens a
+  prefilled Telegram message to @Fbrichyyy. Copy and `.txt` download are also
+  available; the WebUI does not send the message by itself because that would
+  need a bot token.
+- `webroot/data/updates.json` is generated in CI and hashed. The generator
+  scrubs text against the KernelSU-Next risk catalog before writing it, since
+  ksud scans every ZIP entry as text. Only `report.json` and `history.jsonl`
+  stay excluded from the SHA256 manifest.
+
 ## v1.6.1 (2026-11-22)
 
 - Stated Android 17 support explicitly in `module.prop`, the config header, the
