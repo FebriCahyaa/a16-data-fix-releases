@@ -1,3 +1,14 @@
+## v1.3.7 (2026-11-23)
+
+- Removed the KernelSU-Next security-rule warning. Its scanner reads every ZIP
+  entry as text, including compiled `.so` files, and matched a third-party
+  mount metamodule ID that was only present as a detection-only string in
+  `liba16fix_core.so`. That ID is no longer listed; the `/data/adb/metamodule`
+  symlink and the other metamodule IDs are still detected.
+- Added `tools/check_ksu_risk.py` to CI. It mirrors ksud's tokenizer and fails
+  the build if any ZIP entry matches the current KernelSU-Next risk catalog,
+  so a plain literal can never silently reintroduce the warning.
+
 ## v1.3.6 (2026-11-23)
 
 - Installer output is shorter: `DEBUG` lines are no longer written to stderr,
