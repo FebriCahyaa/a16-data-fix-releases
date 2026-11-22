@@ -1,3 +1,13 @@
+## v1.3.2 (2026-11-22)
+
+- Fixed installation failure on KernelSU-Next / Hybrid Mount: shell trampolines
+  now fall back to `MODDIR`, the current directory, and an ABI scan of `bin/*/`
+  when `MODPATH` or `ro.product.cpu.abi` is unavailable.
+- Install-time integrity reporting is now non-fatal. Changed files are still
+  named with expected/actual hashes, but managers that rewrite files during
+  extraction no longer break installation. Custom patches remain rejected.
+- Added an explicit error message when the native core cannot be located.
+
 ## v1.3.1 (2026-11-22)
 
 - Added a dedicated `verify.sh` entry point: run it from the module manager to
