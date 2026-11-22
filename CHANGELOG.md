@@ -1,3 +1,11 @@
+## v1.3.3 (2026-11-22)
+
+- `customize.sh` can no longer fail an installation: native is tried first, then
+  a `sha256sum` fallback reports changed files, and the script always exits 0.
+- Added `/data/local/tmp/a16fix_install_trace` to confirm the installer script
+  is reached and to record the native exit code.
+- Native output is now flushed immediately so installer messages are not lost.
+
 ## v1.3.2 (2026-11-22)
 
 - Fixed installation failure on KernelSU-Next / Hybrid Mount: shell trampolines
