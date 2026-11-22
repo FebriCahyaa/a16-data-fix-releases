@@ -1,3 +1,14 @@
+## v1.3.1 (2026-11-22)
+
+- Added a dedicated `verify.sh` entry point: run it from the module manager to
+  list every file that is `CHANGED`, `MISSING`, or `UNLISTED`.
+- Installation now runs the SHA256 check **first** and prints the exact path,
+  expected hash, and actual hash of each modified file before aborting.
+- `a16fixctl verify` now prints `expected` and `actual` hashes for changed files.
+- Installer and verify stages force integrity checking even if the running
+  config had `REQUIRE_SHA256=0`.
+- Bumped internal dynamic-module ABI to 2 for the new detail callback.
+
 ## v1.3.0 (2026-11-22)
 
 - Full native refactor: all runtime stages now run in `a16fixd` (C++17, NDK r27d).
