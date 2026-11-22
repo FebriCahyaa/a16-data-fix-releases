@@ -1,3 +1,19 @@
+## v1.4.0 (2026-11-23)
+
+- **Android/data storage repair is now implemented and enabled by default.**
+  On Android 16/QPR ROMs where `vold_prepare_subdirs` is denied, the per-app
+  external folders are never created and apps fall back to internal storage.
+  At `post-fs-data` and `boot-completed` the native fixes module enumerates all
+  installed packages from `/data/data`, `/data/app` and `/data/user/<n>` and
+  creates only the **missing** `/data/media/0/Android/{data,obb,media}/<pkg>`
+  folders with `media_rw:media_rw`, mode `0777` and `media_rw_data_file`.
+- Existing folders are never modified, so the pass cannot break working apps.
+  Results appear in `module.log` and in the Action report:
+  `Android/data pass : scanned=N created=M failed=K`.
+- `FIX_ANDROID_DATA=1` added to `config.conf`. Existing runtime configs from
+  older releases inherit the enabled default.
+- ABI bumped to 3 because the config/context structures gained fields.
+
 ## v1.3.7 (2026-11-23)
 
 - Removed the KernelSU-Next security-rule warning. Its scanner reads every ZIP
