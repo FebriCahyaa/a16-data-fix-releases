@@ -1,3 +1,16 @@
+## v1.3.5 (2026-11-23)
+
+- **Critical integrity fix:** `sha256_final()` did not transform the final
+  padding block when a file size was not a multiple of 64 bytes. This made 44
+  of 46 files appear as `CHANGED` after a clean install. Only files sized
+  exactly 4032 bytes (63x64) verified correctly.
+- The same bug affected HMAC-SHA256 validation of encrypted `.so.enc` modules;
+  it is fixed by the same change.
+- Added a known-answer SHA256 self-test ("abc") at crypto init. On failure the
+  integrity engine is marked `sha256_selftest_failed` and every patch is
+  rejected.
+- Installer banner now reads the real version from `module.prop`.
+
 ## v1.3.4 (2026-11-22)
 
 - Fixed the real install-time failure: KernelSU-Next extracts `bin/<abi>/` files
