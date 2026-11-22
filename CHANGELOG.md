@@ -1,3 +1,12 @@
+## v1.3.4 (2026-11-22)
+
+- Fixed the real install-time failure: KernelSU-Next extracts `bin/<abi>/` files
+  without the executable bit. All trampolines now restore `chmod 0755` and, if
+  the filesystem is mounted `noexec`, copy the core to `/data/local/tmp` before
+  running it.
+- The install trace now includes `ls -l` of the ABI directory so permissions
+  are visible.
+
 ## v1.3.3 (2026-11-22)
 
 - `customize.sh` can no longer fail an installation: native is tried first, then
