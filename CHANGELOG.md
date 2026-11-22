@@ -1,3 +1,22 @@
+## v1.5.0 (2026-11-22)
+
+- **Module is now focused only on the Android 16+ QPR storage bug.** Removed the
+  RIL, mount, filesystem-repair, property-injection, custom-patch and encrypted
+  payload code, plus their config toggles and documentation. The ZIP now ships
+  three dynamic modules instead of six.
+- **Automatic detection added to the Action report and `module.log`:**
+  - internal storage type read directly from `/proc/mounts` (`f2fs`, `ext4` or
+    `unknown`, with source device and mount options);
+  - installed Zygisk implementation and version (Magisk built-in, ZygiskNext,
+    ReZygisk, NeoZygisk or native bridge), plus the compiled Zygisk API level
+    (`v5`);
+  - active metamodule state, while the module itself still never sets
+    `metamodule=1`.
+- Config reduced to `FIX_ANDROID_DATA=1` and `REQUIRE_SHA256=1`. Detection needs
+  no toggles. Existing runtime configs inherit these defaults.
+- ABI bumped to 4 because the shared config/context structures were reduced.
+- Installer description renamed to **A16 Data Fix (Storage QPR)**.
+
 ## v1.4.0 (2026-11-23)
 
 - **Android/data storage repair is now implemented and enabled by default.**
