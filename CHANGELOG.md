@@ -1,3 +1,11 @@
+## v1.6.1 (2026-11-22)
+
+- Stated Android 17 support explicitly in `module.prop`, the config header, the
+  README and the security notes. The repair itself is unchanged: Android 16 and
+  17 share the same native create-only path, with no version-gated behavior.
+- The webroot footer now names Android 16 and 17 as target releases, so the
+  supported range is visible without reading the README.
+
 ## v1.6.0 (2026-11-22)
 
 - Renamed the module to **QPR Storage Fix**. The module id, ZIP filename and OTA
