@@ -1,3 +1,19 @@
+## v1.6.0 (2026-11-22)
+
+- Renamed the module to **QPR Storage Fix**. The module id, ZIP filename and OTA
+  URL stay the same, so existing installs keep receiving updates. `module.prop`
+  now has a plain description and a separate `copyright` field.
+- Android detection now records release, SDK, codename, build ID and preview SDK.
+  The QPR label is shown with the security patch date and build ID that produced
+  it, instead of only a bare estimate.
+- Added an offline webroot dashboard at `webroot/index.html`. It shows the last
+  scan, repair counters, Android/QPR, internal storage, Zygisk and metamodule
+  state, plus a 40-entry history table and the raw JSON report. The layout uses
+  a compact dark card style with three tabs.
+- `a16fixd` writes `webroot/data/report.json` and `history.jsonl` after each
+  boot scan and Action press. Both are runtime state and are excluded from the
+  SHA256 manifest and integrity check; the web UI sources are still hashed.
+
 ## v1.5.0 (2026-11-22)
 
 - **Module is now focused only on the Android 16+ QPR storage bug.** Removed the
